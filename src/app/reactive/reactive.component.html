@@ -1,0 +1,28 @@
+<form #f (ngSubmit)="formSubmitted()" [formGroup]="testForm">
+
+<span style="color: red; font-weight: bold;" class="help-block" *ngIf="!testForm.get('username').valid && testForm.get('username').touched">Please enter a valid username!</span>
+<div class="form-group">
+  <label for="username">Username:</label>
+  <input 
+  id="username"
+  formControlName="username"
+  name="username"
+  type="text"
+  class="form-control">
+</div>
+<hr>
+<span style="color: red; font-weight: bold;" class="help-block" *ngIf="!testForm.get('email').valid && testForm.get('email').touched">Please enter a valid email!</span>
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input 
+    id="email"
+    formControlName="email"
+    name="email"
+    type="text"
+    class="form-control">
+  </div>
+  
+  
+
+  <button [disabled]="!testForm.valid" type="submit" class="btn btn-warning">Submit</button>
+</form>
